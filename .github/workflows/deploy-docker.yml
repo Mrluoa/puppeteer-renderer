@@ -6,8 +6,8 @@ on:
       - v*
 
 env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  REGISTRY: registry.cn-hangzhou.aliyuncs.com/lightcode
+  IMAGE_NAME: puppeteer
   SCOPE: puppeteer-renderer
 
 jobs:
@@ -24,8 +24,8 @@ jobs:
         uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWD }}
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
