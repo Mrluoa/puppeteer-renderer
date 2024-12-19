@@ -35,6 +35,12 @@ export class Renderer {
         emulateMediaType: pageOptions.emulateMediaType || 'print',
       })
 
+      const { animationTimeout } = pdfOptions
+
+      if (animationTimeout > 0) {
+        await waitForAnimations(page, pdfOptions, animationTimeout)
+      }
+
       const buffer = await page.pdf(pdfOptions)
       return buffer
     } finally {

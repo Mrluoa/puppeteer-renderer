@@ -64,6 +64,8 @@ export const pdfSchema = yup.object({
     left: yup.string(),
   }),
   preferCSSPageSize: yup.boolean(),
+  // Extra options
+  animationTimeout: yup.number().default(0),
 })
 
 export type PdfOptions = yup.InferType<typeof pdfSchema>
